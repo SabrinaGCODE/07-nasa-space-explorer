@@ -12,7 +12,7 @@ const modalExplanation = document.getElementById("modalExplanation");
 
 setupDateInputs(startInput, endInput);
 
-const apiKey = "DEMO_KEY";
+const apiKey = "GqmbV8Vta16oGFdNoZifHmTQbksQRzxuGZZgGGG9";
 
 button.addEventListener("click", async function () {
   const startDate = startInput.value;
