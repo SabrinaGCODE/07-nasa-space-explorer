@@ -18,7 +18,6 @@
       <input type="date" id="endDate" />
       <button>Get Space Images</button>
     </div>
-
     <div id="gallery" class="gallery">
       <div class="placeholder">
         <div class="placeholder-icon">🔭</div>
@@ -26,7 +25,15 @@
       </div>
     </div>
   </div>
-
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <button id="closeModal" class="close-btn">&times;</button>
+    <img id="modalImage" src="" alt="">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDate"></p>
+    <p id="modalExplanation"></p>
+  </div>
+</div>
   <script src="js/dateRange.js"></script>
   <script src="js/script.js"></script>
 </body>
