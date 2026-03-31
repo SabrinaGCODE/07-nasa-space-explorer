@@ -29,7 +29,7 @@ button.addEventListener("click", async function () {
 
   gallery.innerHTML = `
     <div class="placeholder">
-      <p>🔄 Loading space photos...</p>
+      <p>Loading space photos...</p>
     </div>
   `;
 
@@ -38,6 +38,17 @@ button.addEventListener("click", async function () {
   try {
     const response = await fetch(url);
     const data = await response.json();
+
+    console.log("NASA response:", data);
+
+    if (!response.ok || data.error || data.code) {
+      gallery.innerHTML = `
+        <div class="placeholder">
+          <p>${data.msg || data.error?.message || "NASA API request failed."}</p>
+        </div>
+      `;
+      return;
+    }
 
     gallery.innerHTML = "";
 
@@ -78,10 +89,10 @@ button.addEventListener("click", async function () {
       `;
     }
   } catch (error) {
-    console.error("Error fetching NASA data:", error);
+    console.error("Fetch error:", error);
     gallery.innerHTML = `
       <div class="placeholder">
-        <p>Something went wrong. Please try again.</p>
+        <p>Something went wrong. Check the browser console.</p>
       </div>
     `;
   }
